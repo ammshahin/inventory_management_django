@@ -5,4 +5,10 @@ def index(request):
     return render(request, 'dashboard/index.html',)
 
 def staffs(request):
-    return render(request, 'staffs.html')
+    return render(request, 'dashboard/staffs.html')
+
+def product(request):
+    return render(request, 'dashboard/product.html')
+
+def order(request):
+    return render(request, 'dashboard/order.html')
