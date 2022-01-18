@@ -1,6 +1,8 @@
+from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from .models import Product
 
 
 @login_required
@@ -13,7 +15,11 @@ def staffs(request):
 
 @login_required
 def product(request):
-    return render(request, 'dashboard/product.html')
+    products = Product.objects.all()
+    context = {
+        'products':products,
+    }
+    return render(request, 'dashboard/product.html',context)
 
 @login_required
 def order(request):
